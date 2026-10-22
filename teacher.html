@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Biology Study Guide: Teacher Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --sunk:#EEF1F5; --ink:#1B1F27; --muted:#5B6372; --line:#D9DEE6;
+  --accent:#1F5F4A; --gold:#B8901C;
+  --sec:#d9ead3; --dev:#fff2cc; --int:#f4cccc;
+  --f-display:"Zilla Slab", Rockwell, Georgia, serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){ :root{
+  --bg:#12151B; --surface:#1A1F27; --sunk:#232A34; --ink:#E8EBF0; --muted:#A3ACBA; --line:#323B48;
+  --accent:#8CCBB3; --gold:#E2BC4E; --sec:#24402c; --dev:#4a3f17; --int:#4a2323; color-scheme:dark }}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:28px 16px 64px}
+h1,h2{font-family:var(--f-display);margin:0;line-height:1.15}
+h1{font-size:clamp(1.9rem,5vw,2.6rem)}
+h2{font-size:1.35rem;margin:34px 0 10px;color:var(--accent)}
+p{margin:0 0 10px;max-width:72ch}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-top:18px}
+.share{border-left:5px solid var(--accent)}
+.linkrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}
+.url{font-family:var(--f-mono);font-size:.85rem;background:var(--sunk);padding:8px 12px;border-radius:8px;overflow-wrap:anywhere;flex:1 1 280px}
+.btn{display:inline-block;border:0;background:var(--accent);color:var(--surface);font:inherit;font-weight:700;padding:9px 18px;border-radius:8px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+ol,ul{margin:0;padding-left:1.3em;display:grid;gap:6px;max-width:72ch}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--sunk)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px}
+.small{font-size:.88rem;color:var(--muted)}
+.tscroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">McIntosh County Schools · Biology EOC · Teachers</div>
+  <h1>Biology Study Guide: Teacher Page</h1>
+  <p style="margin-top:8px">Students work the digital study guide one domain at a time. Every domain they submit lands in a shared Google Sheet that shows each student's score on all 24 standard elements and who needs help.</p>
+
+  <div class="card share">
+    <h2 style="margin-top:0">Link to give students</h2>
+    <p>Post this in Google Classroom. Students need no login, just their name, your last name, and their period.</p>
+    <div class="linkrow"><span class="url" id="student-url"></span><button class="btn" id="copy">Copy link</button><a class="btn ghost" id="open" target="_blank" rel="noopener">Open the guide</a></div>
+  </div>
+
+  <div class="card" id="sheet-card" hidden>
+    <h2 style="margin-top:0">Score spreadsheet</h2>
+    <p>Updates within seconds of each submission. Ask Alicia Rosenbaum for access if it does not open for you.</p>
+    <div class="linkrow"><a class="btn" id="sheet-link" target="_blank" rel="noopener">Open the score Sheet</a></div>
+  </div>
+  <div class="card" id="sheet-missing">
+    <h2 style="margin-top:0">Score spreadsheet</h2>
+    <p>Ask Alicia Rosenbaum for the link to the score Sheet. Scores go to one shared Sheet for every Biology class.</p>
+  </div>
+
+  <h2>What students do</h2>
+  <ol>
+    <li>Sign in with first and last name, your last name, and period. Remind them to use the same name every time, or their scores split into two rows.</li>
+    <li>Pick a domain, read its Key Ideas, and answer all of its questions. Domains have 9 to 18 questions, 3 per standard element.</li>
+    <li>Submit. They see which questions they got right or wrong and a status for each skill, but never the correct answers.</li>
+    <li>Retake if you allow it. Their newest attempt replaces the older one in the Gradebook, and every attempt stays in Responses.</li>
+  </ol>
+  <p class="small" style="margin-top:10px">Students need scratch paper for Punnett squares (Domain 2) and the cladogram sketch (Domain 3).</p>
+
+  <h2>Reading the spreadsheet</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Tab</th><th>Use it to</th></tr></thead>
+    <tbody>
+      <tr><td><b>Gradebook</b></td><td>See one row per student with a 0-3 score on each element (SB1a to SB6e) and a percent for each domain. Turn on the filter to show only your class.</td></tr>
+      <tr><td><b>Needs Help</b></td><td>Build reteach groups. Every student below 3/3 on a skill, with the questions they missed. Filter by Teacher and Period, then sort by Element.</td></tr>
+      <tr><td><b>Element Summary</b></td><td>Spot whole-class reteach needs. A skill under 40% Secure is a reteach for everyone, not a small group.</td></tr>
+      <tr><td><b>Responses</b></td><td>See the raw record of every submission. Leave this tab alone; the other three rebuild from it.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What the colors mean</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Element score</th><th>Status</th><th>Next step</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sw" style="background:var(--sec)"></span>3 of 3</td><td>Secure</td><td>Spiral review only</td></tr>
+      <tr><td><span class="sw" style="background:var(--dev)"></span>2 of 3</td><td>Developing</td><td>Small-group reteach, then check again</td></tr>
+      <tr><td><span class="sw" style="background:var(--int)"></span>0 or 1 of 3</td><td>Intervene</td><td>Reteach the element, then reassess before moving on</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small" style="margin-top:8px">A domain percent in red means under 60% on that domain. These are local grouping rules, not GaDOE achievement-level cut scores.</p>
+
+  <h2>Domains and test weight</h2>
+  <div class="tscroll"><table>
+    <thead><tr><th>Domain</th><th>Standards</th><th>% of EOC</th><th>Questions</th></tr></thead>
+    <tbody>
+      <tr><td>1. Cells</td><td>SB1a-e</td><td>20%</td><td>15</td></tr>
+      <tr><td>2. Cellular Genetics &amp; Heredity</td><td>SB2a-c, SB3a-c</td><td>23%</td><td>18</td></tr>
+      <tr><td>3. Classification &amp; Phylogeny</td><td>SB4a-c</td><td>13%</td><td>9</td></tr>
+      <tr><td>4. Ecology</td><td>SB5a-e</td><td>27%</td><td>15</td></tr>
+      <tr><td>5. Theory of Evolution</td><td>SB6a-e</td><td>17%</td><td>15</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>If something goes wrong</h2>
+  <ul>
+    <li><b>A student's scores are missing.</b> Check Responses for a spelling of their name or a different period. Their results page says "Not sent yet" if they lost internet; it resends on its own once they reconnect with the guide open.</li>
+    <li><b>A student shows up twice.</b> They typed their name two ways. Fix the name in Responses, then use <b>Biology Guide &gt; Rebuild dashboards</b> in the Sheet's menu.</li>
+    <li><b>A student switched computers.</b> Answers save in the browser, so they start fresh on a new device. Scores already submitted are safe in the Sheet.</li>
+  </ul>
+  <p class="small" style="margin-top:24px">The paper version of this guide and its answer key are separate PDFs. Built from the GaDOE Biology Standards, Teacher Notes, ALDs, and the Milestones Biology Blueprint (July 2025).</p>
+</div>
+<script>
+// Paste the score Sheet's URL between the quotes to show the "Open the score Sheet" button.
+const SHEET_URL = "";
+
+const studentUrl = new URL("./", location.href).href;
+document.getElementById("student-url").textContent = studentUrl;
+document.getElementById("open").href = studentUrl;
+document.getElementById("copy").onclick = async (e) => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText(studentUrl); b.textContent = "Copied"; }
+  catch (err) { const r = document.createRange(); r.selectNodeContents(document.getElementById("student-url")); getSelection().removeAllRanges(); getSelection().addRange(r); b.textContent = "Press Ctrl+C"; }
+  setTimeout(() => { b.textContent = "Copy link"; }, 2000);
+};
+if (/^https:\/\/docs\.google\.com\/spreadsheets\//.test(SHEET_URL)) {
+  document.getElementById("sheet-link").href = SHEET_URL;
+  document.getElementById("sheet-card").hidden = false;
+  document.getElementById("sheet-missing").hidden = true;
+}
+</script>
+</body>
+</html>
